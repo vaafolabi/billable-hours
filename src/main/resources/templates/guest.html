@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Generate Invoice from Timesheet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Specter Litt</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+
+    </nav>
+
+</div>
+
+<div class=" px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+       <p class="lead">To get started, simply upload the CSV below or click <a href="template.csv">here</a> to download a template</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form method="post" action="/upload-file" enctype="multipart/form-data" class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="timesheet" class="sr-only">Select timesheet</label>
+                    <input type="file" name="file" class="form-control-file" id="timesheet"/>
+                </div>
+                <input type="submit" name="submit" class="btn btn-primary mb-2" value="Process Invoice"/>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+
+</div>
+
+<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

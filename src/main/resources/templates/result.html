@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div th:if="${!success}">
+                <div class="alert alert-danger" th:text="${errordata}"></div>
+            </div>
+            <div th:if="${success}">
+                <div th:each="companies : ${data}">
+                    <h5>Company: <span th:text="${companies.getCompanyName()}"></span></h5>
+                    <table class="table table-bordered">
+                        <thead style="background-color: #397DA0;color:#ffffff;">
+                        <td>Employee ID</td>
+                        <td>Number of Hours</td>
+                        <td>Unit Price</td>
+                        <td>Cost</td>
+                        </thead>
+                        <tbody>
+                        <tr th:each="company : ${companies.getEmployees()}">
+                            <td th:text="${company.getEmployeeId()}"/>
+                            <td th:text="${company.getNumberOfHours()}"/>
+                            <td th:text="${company.getUnitPrice()}"/>
+                            <td th:with="result=${company.getUnitPrice()* company.getNumberOfHours()}"
+                                th:text="${result}"/></i>
+                        </tr>
+                        <tr><td/><td/><td><h5>Total</h5></td><td th:text="${companies.getTotal()}"/></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="/guest" class="btn btn-primary">Back</a>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<script src="webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
